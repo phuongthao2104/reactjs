@@ -46,7 +46,7 @@ key.foreach2(function (course, index, array){
 Array.prototype.mapA = function (callback){
 	let output = [];
 	arryLenght = this.length;
-	for(let i = 0; i < this.length; i++){
+	for(let i = 0; i < arryLenght; i++){
 		let value = callback( this[i], i);
 		output.push(value);
 	}
