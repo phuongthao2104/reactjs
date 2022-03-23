@@ -1,75 +1,60 @@
-// // //bài 1: Sử dụng vòng lặp, tính tổng giá trị các phần tử trong mảng.
-// // Input: [0, 5, 4, 2, 8]
-// // Output: 19
-
-// var number = [0, 5, 4, 2, 8];
-// var sum = 0;
-// for ( var i = 0 ; i<number.length ; i++)
-// {
-//     sum = sum + number[i];
-// }
-// console.log(sum);
-
-// // bài 2. Sử dụng một mảng các đối tượng person (name, age) thành tổng
-// //  hợp mảng các tên người.
-// // Input: const person = [
-// // 	{ name: 'John', age: 24 },
-// // 	{ name: Pete, age: 25 },
-// // 	{ name: Mary', age: 28 }
-// // ]
-// // Output: ['John', 'Pete', 'Mary'].
-
-// const person = [
-// 	{ name: 'John', age: 24 },
-// 	{ name: 'Pete', age: 25 },
-// 	{ name: 'Mary', age: 28 }];
-// var namePerson = [];
-// for(var value of person){
-//     namePerson.push(value.name);
-// }
-// console.log(namePerson);
-
-// // bài 3. Sử dụng các mảng dữ liệu tên người để tổng hợp thành mảng 
-// // tên người không trùng lặp.
-// // Input:	arr1 = ['John', 'Pete', 'Mary']
-// // 	arr2 = ['Mary', 'Henry', 'Harry']
-// // Output: ['John', 'Pete', 'Mary', 'Henry']
-
-// const arr1 = ['John', 'Pete', 'Mary'];
-// const arr2 = ['Mary', 'Henry', 'Harry'];
-// let myArray = [...arr1, ...arr2];
-
-// let myset = new Set(myArray); 
-// let result = Array.from(myset);
-
-// console.log(result);
 
 
-// 1. lam vi du ve callback
-function Example(){
-	console.log("Hello");
-  }
+
+// // 1. lam vi du ve callback
+// function Example(){
+// 	console.log("Hello");
+//   }
   
-  function taskOne(callback){
-	callback();
-  }
+//   function taskOne(callback){
+// 	callback();
+//   }
   
-  taskOne(Example);
-  // 2. lam vi du ve callback hell:  xong taskA -> taskB
-  function taskA(job){
-    job();
-}
-function taskB(job){
-    job();
-}
+//   taskOne(Example);
+//   // 2. lam vi du ve callback hell:  xong taskA -> taskB
+//   function taskA(job){
+//     job();
+// }
+// function taskB(job){
+//     job();
+// }
 
-function main(){
-    taskA(function(){
-      taskB(function(){
-          console.log('hello');
-      });
-    });
-}
+// function main(){
+//     taskA(function(){
+//       taskB(function(){
+//           console.log('hello');
+//       });
+//     });
+// }
 
-main();
-//promise
+// main();
+// Array.prototype
+//foreach2
+Array.prototype.foreach2 = function(callback){
+	for(let index in this) {
+		if(this.hasOwnProperty(index)){
+			callback(this[index], index, this);
+		}
+	}
+};
+
+const key = ["a","b"]
+key.foreach2(function (course, index, array){
+	console.log(course, index, array);
+});
+// mapA
+Array.prototype.mapA = function (callback){
+	let output = [];
+	arryLenght = this.length;
+	for(let i = 0; i < this.length; i++){
+		let value = callback( this[i], i);
+		output.push(value);
+	}
+	return output;
+}
+ 
+ const myArr = key.mapA(function(element){
+	 console.log(element)
+ });
+
+ 
