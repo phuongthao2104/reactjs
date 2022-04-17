@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import HomePage from "./components/page/Home/HomePage";
+import HomePage from "./page/Home/HomePage.js";
 import Social from './components/Social';
 import { createRoot } from "react-dom/client";
 const container = document.getElementById("root");
