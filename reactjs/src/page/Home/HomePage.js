@@ -1,4 +1,4 @@
-import React, { useEffect,useState} from 'react';
+import React, { useEffect,useState, useMemo} from 'react';
 import Button from './../../components/commons/Button';
 import Text from './../../components/commons/Text';
 import Input from './../../components/commons/Input';
@@ -25,10 +25,14 @@ const HomePage = () => {
         }
         
     }
-    
-    const test = () =>{
-        alert("ok")
-    }
+    // useEffect(() =>{
+    //  console.log("vào lần đầu");
+    // },[])
+    //callapi, sate thay đổi
+
+    // usememo
+    const memoizedValue = useMemo(() => computeExpensiveValue(name, value));
+
     return (
         <div className="wrapper"> 
         {loading ? (
